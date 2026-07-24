@@ -4,150 +4,247 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Web & WordPress Developer</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
         }
 
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: #050505;
+            color: #a3a3a3;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Animated Background Subtle Gradient */
         header {
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 2rem;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: radial-gradient(circle at center, #171717 0%, #050505 100%);
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        header h1 {
-            font-size: 3rem;
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #e5e5e5;
             margin-bottom: 1rem;
-            color: #38bdf8;
+            letter-spacing: -1px;
+            animation: slideDown 1s ease-out;
         }
 
-        header p {
+        .subtitle {
             font-size: 1.25rem;
-            max-width: 600px;
-            color: #94a3b8;
+            font-weight: 600;
+            max-width: 650px;
+            color: #737373;
             margin-bottom: 2rem;
+            animation: fadeIn 2s ease-in-out;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: #0284c7;
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
+        /* Social & Hire Buttons */
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+            animation: slideUp 1.2s ease-out;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #121212;
+            border: 1px solid #262626;
+            border-radius: 12px;
+            color: #a3a3a3;
+            font-size: 1.4rem;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .btn:hover {
-            background-color: #0369a1;
-            transform: translateY(-2px);
+        .social-icon:hover {
+            color: #ffffff;
+            border-color: #525252;
+            background-color: #1f1f1f;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.8);
         }
 
+        .btn-hire {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: #e5e5e5;
+            color: #050505;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            animation: slideUp 1.4s ease-out;
+        }
+
+        .btn-hire:hover {
+            background-color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(229, 229, 229, 0.2);
+        }
+
+        /* Section Styling */
         .section {
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            color: #f3f4f6;
-            border-bottom: 2px solid #0284c7;
-            display: inline-block;
-        }
-
-        .title-wrapper {
-            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #e5e5e5;
+            margin-bottom: 3rem;
+            position: relative;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
+        /* Animated Cards */
         .card {
-            background: #1e293b;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            transition: 0.3s;
+            background-color: #0d0d0d;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid #1f1f1f;
+            transition: all 0.4s ease;
         }
 
         .card:hover {
-            border-color: #38bdf8;
-            transform: translateY(-5px);
+            border-color: #404040;
+            transform: translateY(-8px);
+            background-color: #141414;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: #e5e5e5;
+            margin-bottom: 1.2rem;
         }
 
         .card h3 {
-            color: #38bdf8;
+            color: #d4d4d4;
+            font-size: 1.3rem;
+            font-weight: 700;
             margin-bottom: 0.8rem;
         }
 
         .card p {
-            color: #cbd5e1;
+            color: #737373;
             font-size: 0.95rem;
+            font-weight: 500;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            background-color: #020617;
-            color: #64748b;
+            padding: 2.5rem;
+            background-color: #020202;
+            border-top: 1px solid #171717;
+            color: #525252;
             font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Header / Hero Section -->
     <header>
-        <h1>Hi, I'm a Web Developer 👋</h1>
-        <p>I build fast, responsive, and modern WordPress websites tailored to elevate your business online.</p>
-        <a href="https://fiverr.com" target="_blank" class="btn">Hire Me on Fiverr</a>
+        <h1>Web & WordPress Developer</h1>
+        <p class="subtitle">Building ultra-fast, responsive, and modern websites designed to elevate your brand presence online.</p>
+
+        <!-- Social Media & Fiverr Links -->
+        <div class="social-links">
+            <!-- Fiverr Icon (Custom SVG) -->
+            <a href="https://fiverr.com" target="_blank" class="social-icon" title="Fiverr Profile">
+                <i class="fa-solid fa-briefcase"></i>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" class="social-icon" title="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+        </div>
+
+        <a href="https://fiverr.com" target="_blank" class="btn-hire">
+            <i class="fa-solid fa-bolt"></i> Hire Me on Fiverr
+        </a>
     </header>
 
     <!-- Services Section -->
     <section class="section">
-        <div class="title-wrapper">
-            <h2 class="section-title">My Services</h2>
-        </div>
+        <h2 class="section-title">My Services</h2>
         <div class="services-grid">
             <div class="card">
-                <h3>🌐 Custom Web Design</h3>
-                <p>Tailor-made, responsive website layouts designed to look stunning on mobile, tablet, and desktop devices.</p>
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3>Custom Web Design</h3>
+                <p>Modern, responsive, and clean layouts engineered for exceptional performance on desktop, mobile, and tablet devices.</p>
             </div>
             <div class="card">
-                <h3>⚙️ WordPress Solutions</h3>
-                <p>Full WordPress setup, theme customization, plugin integration, and site optimization.</p>
+                <i class="fa-brands fa-wordpress"></i>
+                <h3>WordPress Solutions</h3>
+                <p>Complete WordPress ecosystem setup, custom themes, plugin configuration, and seamless site management.</p>
             </div>
             <div class="card">
-                <h3>⚡ Speed & Performance</h3>
-                <p>Fast-loading web pages optimized for search engines (SEO) to improve user experience and conversions.</p>
+                <i class="fa-solid fa-gauge-high"></i>
+                <h3>Speed & Optimization</h3>
+                <p>Core Web Vitals optimization, search engine strategy (SEO), and high-security standards for fast loading times.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Portfolio. Built with HTML & CSS.</p>
+        <p>&copy; 2026 Designed & Developed by Web Developer. All rights reserved.</p>
     </footer>
 
 </body>
